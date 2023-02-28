@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Agenda - {{user|title}}</h1>
+<br><br>
+
+<form action="{% url 'home' %}" class='d-flex' method='POST'>
+  {% csrf_token %}
+  <input type="search" class='form-control mx-1' value='{{request.GET.pesquisa}}' name='pesquisa' placeholder='Digite a sua pesquisa'>
+  <button type="submit" class='btn btn-success'><i class='fas fa-search'></i></button>
+</form>
+<br>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for contato in contatos%}
+      <tr>
+        <th>
+            <a href="{% url 'contato' contato.id%}" style='text-decoration: none;'>
+                {{contato.nome}}
+            </a>
+        </th>
+        <td>{{contato.sobrenome}}</td>
+        <td>{{contato.telefone}}</td>
+        <td>{{contato.email}}</td>
+        <td>{{contato.categoria}}</td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+  {% include 'parciais/paginator.html' %}
+
+{% endblock content %}   

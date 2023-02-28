@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- CSS STATIC-->    
+    <link rel="stylesheet" href="{% static 'contatos/css/styles.css'%}">
+
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% block head %}{% endblock head %}
+    <title>{% block title %}Agenda - {{user|title}}{% endblock title %}</title>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="preloader"></div>
+
+        <!--INCLUDE NAVBAR-->
+        {% include 'parciais/navbar.html' %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mt-5">
+                    {% block content %}     
+                    {% endblock content %} 
+                </div>
+            </div>
+        </div>
+           
+    </div> <!--END WRAPPER-->
+
+
+   {% include 'parciais/footer.html' %}
+
+
+       <!--Messagem da view backend-->
+       {% for message in messages %}
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   
+       <script>
+           "{% if message.tags == 'success'%}"
+               var m = "{{message}}";
+               swal("Enviado!",m,"success")
+   
+           "{% elif message.tags == 'error'%}"
+               var m = "{{message}}";
+               swal("Erro!",m,"error")
+           "{% endif %}"
+   
+       </script>
+       {% endfor %}
+   
+
+    <!--BOOTSTRAP JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--JQUARY JS-->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="></script>
+    <!--SWEET ALERT-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--JS STATIC
+    <script src='{% static "App/js/js.js" %}'></script>
+    -->
+   
+</body>
+</html>

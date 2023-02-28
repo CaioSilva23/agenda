@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{contato.nome|title}}{% endblock title %}
+
+{% block content %}
+<div class="card " style="width: 18rem; border: none">
+  {% if contato.foto %}
+    <img src="{{contato.foto.url}}"  class="card-img-top foto" alt="foto do {{contato.nome}}">
+  {% endif %} 
+    <div class="card-body">
+      <h5 class="card-title">{{contato.nome}} {{contato.sobrenome}}</h5>
+      {% comment %} <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> {% endcomment %}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Telefone</strong>: {{contato.telefone}}</li>
+      <li class="list-group-item"><strong>Email: </strong>: {{contato.email}}</li>
+      <li class="list-group-item"><strong>Categoria</strong>: {{contato.categoria}}</li>
+      <li class="list-group-item"><strong>Data</strong>: {{contato.date_created|date:'d/m/Y'}}</li> <!--{{data|date:'d/m/Y H:i:s'}}-->
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link btn btn-secondary"><i class='fas fa-edit'></i>&nbsp;&nbsp;Editar</a>
+      <a href="#" class="card-link btn btn-danger"><i class='fas fa-trash'></i>&nbsp;&nbsp;Deletar</a>
+    </div>
+  </div>
+{% endblock content %}
