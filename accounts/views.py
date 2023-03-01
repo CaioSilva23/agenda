@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib import messages
+from .forms import RegisterForm
 
 
 def login(request):
@@ -24,9 +25,24 @@ def login(request):
 
 
 def cadastro(request):
-    pass
 
+    form = RegisterForm(request.POST or None)
 
+    if request.method == 'GET':
+        return render(request, 'accounts/cadastro.html', {'form': form})
+    
+
+    
+    elif request.method == 'POST':
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(user.password)
+            user.save()
+            messages.success(request, 'Cadastro realizado com sucesso!')
+            return redirect('/accounts/login')
+        else:
+            return render(request, 'accounts/cadastro.html', {'form': form})
+        
 
 def logout(request):
     auth.logout(request)

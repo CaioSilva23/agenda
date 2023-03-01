@@ -1,0 +1,8 @@
+
+{% extends 'parciais/modal_base.html' %}
+
+{% block modal-title %}Novo contato{% endblock modal-title %}
+
+{% block action %}action='{% url 'novo_contato' %}'{% endblock action %}
+
+{% block content %}{{form}}{% endblock content%}

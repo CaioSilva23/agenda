@@ -12,6 +12,10 @@
 </form>
 <br>
 
+<button class='btn btn-success' data-bs-toggle="modal" data-bs-target="#modalContato" >
+  <i class='fas fa-plus'></i>
+
+</button>
 
 <table class="table">
     <thead>
@@ -36,11 +40,20 @@
         <td>{{contato.email}}</td>
         <td>{{contato.categoria}}</td>
       </tr>
+    {%empty%}
+    <p>Sem registros</p>
     {% endfor %}
 
     </tbody>
   </table>
 
   {% include 'parciais/paginator.html' %}
+
+
+<!--MODAL FORM-->
+{% include 'parciais/modal_form_cadastro.html' %}
+
+<!--MODAL SAIR-->
+{% include 'parciais/modal_sair.html' %}
 
 {% endblock content %}   

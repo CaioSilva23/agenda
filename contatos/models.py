@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=25)
@@ -16,6 +17,7 @@ class Contato(models.Model):
     descricao = models.TextField(blank=True)
     foto = models.ImageField(upload_to='fotos', blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self) -> str:
         return self.nome

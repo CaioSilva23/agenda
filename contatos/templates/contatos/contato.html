@@ -19,8 +19,17 @@
       <li class="list-group-item"><strong>Data</strong>: {{contato.date_created|date:'d/m/Y'}}</li> <!--{{data|date:'d/m/Y H:i:s'}}-->
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link btn btn-secondary"><i class='fas fa-edit'></i>&nbsp;&nbsp;Editar</a>
+
+      <button class="card-link btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalContato">
+        <i class='fas fa-edit'></i>&nbsp;&nbsp;Editar
+      </button>
+      
       <a href="#" class="card-link btn btn-danger"><i class='fas fa-trash'></i>&nbsp;&nbsp;Deletar</a>
     </div>
   </div>
+
+<!--MODAL FORM-->
+{% include 'parciais/modal_form_cadastro_edit.html' %}
+
+
 {% endblock content %}

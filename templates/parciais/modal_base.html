@@ -1,0 +1,24 @@
+  <!-- Modal   -->
+  <div class="modal fade"  {% block modal-id %}id="modalContato"{% endblock modal-id %} tabindex="-1" aria-labelledby="defaultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="defaultModalLabel"><i class='fas fa-address-book'></i> &nbsp;&nbsp;{% block modal-title %}{% endblock modal-title %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method='POST' {% block action %}{% endblock action %} {% block validation %}{% endblock validation %} enctype='multipart/form-data'>{% csrf_token %}
+            <div class="modal-body">
+            {% block content %}{% endblock content%}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark btn-sm btn-cancel" data-bs-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-info btn-sm btn-send">Enviar</button>
+            </div>
+        </form>
+       
+      </div>
+    </div>
+  </div>
+  
+  
+  

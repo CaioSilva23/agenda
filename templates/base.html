@@ -46,14 +46,17 @@
        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    
        <script>
-           "{% if message.tags == 'success'%}"
+            "{% if message.tags == 'success'%}"
                var m = "{{message}}";
                swal("Enviado!",m,"success")
    
-           "{% elif message.tags == 'error'%}"
+            "{% elif message.tags == 'error'%}"
                var m = "{{message}}";
                swal("Erro!",m,"error")
-           "{% endif %}"
+            "{% elif message.tags == 'info'%}"
+                var m = "{{message}}";
+                swal("Atenção!",m,"info")
+            "{% endif %}"
    
        </script>
        {% endfor %}
