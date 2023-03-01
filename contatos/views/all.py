@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
-from .models import Contato
+from django.shortcuts import render, get_object_or_404, redirect
+from contatos.models import Contato
 from django.core.paginator import Paginator
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import FormContato
+from contatos.forms import FormContato
 
 @login_required(login_url='login')
 def home(request):

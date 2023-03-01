@@ -31,8 +31,6 @@ def cadastro(request):
     if request.method == 'GET':
         return render(request, 'accounts/cadastro.html', {'form': form})
     
-
-    
     elif request.method == 'POST':
         if form.is_valid():
             user = form.save(commit=False)
