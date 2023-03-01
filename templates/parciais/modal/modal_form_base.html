@@ -1,0 +1,68 @@
+  <!-- Modal   -->
+  <div class="modal fade"  {% block modal-id %}id="modalContato"{% endblock modal-id %} tabindex="-1" aria-labelledby="defaultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="defaultModalLabel"><i class='fas fa-address-book'></i> &nbsp;&nbsp;{% block modal-title %}{% endblock modal-title %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method='POST' {% block action %}{% endblock action %} {% block validation %}{% endblock validation %} enctype='multipart/form-data'>{% csrf_token %}
+            <div class="modal-body">
+          
+            <div class="input-group input-group-sm mb-2">
+              <button class='side-label btn border-secondary bg-success'>
+                  <i class='fas fa-user-alt'></i>
+              </button>
+              {{form.nome}}
+          </div>
+          
+          <div class="input-group input-group-sm mb-2">
+              <button class='side-label btn border-secondary bg-success'>
+                <i class='fas fa-phone'></i>
+              </button>
+              {{form.sobrenome}}
+          </div>
+          
+          <div class="input-group input-group-sm mb-2">
+              <button class='side-label btn border-secondary bg-success'>
+                  <i class='fas fa-phone'></i>
+              </button>
+              {{form.telefone}}
+          </div>
+          
+          <div class="input-group input-group-sm mb-2">
+              <button class='side-label btn border-secondary bg-success'>
+                  <i class='fas fa-envelope'></i>
+              </button>
+              {{form.email}}
+          </div>
+          
+          
+          <div class='' style='font-size: 14px;'>Categoria</div>
+          <div class="input-group input-group-sm mb-2">
+              <button class='side-label btn border-secondary bg-success'>
+                  <i class='fas fa-user-alt'></i>
+              </button>
+              {{form.categoria}}
+          </div>
+          <hr style='height: 1px;'>
+          
+          <div class='mb-3'>
+              <div class='' style='font-size: 14px;'> <i class='fas fa-cloud-upload-alt'></i>&nbsp;&nbsp; Foto</div>
+                  {{form.foto}}
+              <div class='form-text' style='font-size: 12px;'>*Extensões permitidas: png - jpeg</div>
+          </div>
+          
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark btn-sm btn-cancel" data-bs-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-info btn-sm btn-send">Enviar</button>
+            </div>
+        </form>
+       
+      </div>
+    </div>
+  </div>
+  
+  
+  

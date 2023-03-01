@@ -44,6 +44,7 @@ def novo_contato(request):
             user = form.save(commit=False)
             user.user = request.user
             user.save()
+            messages.success(request, 'Contato cadastrado com sucesso!')
             return redirect('home')
         else:
             return redirect('home')
@@ -61,6 +62,14 @@ def editar_contato_id(request, id):
             user = form.save(commit=False)
             user.user = request.user
             user.save()
+            messages.success(request, 'Contato editado com sucesso!')
             return redirect(f'/contatos/contato/{id}')
         else:
             return redirect('home')
+
+
+def deletar(request, id):
+    contato = get_object_or_404(Contato, id=id)
+    contato.delete()
+    messages.success(request, 'Contato deletado com sucesso!')
+    return redirect('home')

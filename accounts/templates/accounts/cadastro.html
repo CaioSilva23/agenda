@@ -4,16 +4,36 @@
 
 {% block content %}
 
-<div class="container justify-content-center align-items-center p-4" style='background-color: rgba(0,0,0,0.2); max-width: 30%; border-radius: 20px'>
+<div class="container justify-content-center align-items-center p-4" style='background-color: rgba(0,0,0,0.2); max-width: 50%; border-radius: 20px'>
     <h1 class='mb-4'>Cadatre-se</h1>
-<form action="{% url 'cadastro' %}" method='POST'>{% csrf_token %}
-        {{form}}
 
-        <br>
-    <button class='btn btn-secondary' type="submit">Enviar</button>
-    <p class='text-center' ><a style='text-decoration: none;' href="{% url 'login' %}">Fazer login</a></p>
+<div class="col-xl-12 col-sm-12">
+    <form action="{% url 'cadastro' %}" method='POST'>{% csrf_token %}
 
-</form>
+        {% for field in form  %}{{field.label}}
+        {{field.errors}}
+        <div class="input-group input-group-sm mb-3">
+            {{field}}
+        </div>
+        {% endfor %}
+            
+    
+            <br>
+        <button class='btn btn-secondary' type="submit">Enviar</button>
+        <p class='text-center' ><a style='text-decoration: none;' href="{% url 'login' %}">Fazer login</a></p>
+    
+    </form>
 </div>
+
+</div>
+
+<!--Messagem do forms via backend-->
+{% if form.errors%}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+        swal("Atenção!",'Dados inválidos',"info")
+</script>
+{% endif %}
 
 {% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'parciais/modal/modal_sair_base.html' %}
+
+{% block title %}Deseja deletar este contato ?{% endblock title %}
+
+{% block content %}
+
+<i class='fas fa-power-off fa-4x text-danger'></i>
+{% endblock content %}
+
+{% block url %}href="{% url 'deletar' contato.id %}"{% endblock url %} >

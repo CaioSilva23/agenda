@@ -10,4 +10,5 @@ urlpatterns = [
 
     path('novo_contato/', views.novo_contato, name='novo_contato'),
     path('editar_contato_id/<int:id>/', views.editar_contato_id, name='editar_contato_id'),
+    path('deletar/<int:id>/', views.deletar, name='deletar'),
 ]

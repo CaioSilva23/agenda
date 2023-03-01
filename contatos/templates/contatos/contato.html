@@ -23,13 +23,18 @@
       <button class="card-link btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalContato">
         <i class='fas fa-edit'></i>&nbsp;&nbsp;Editar
       </button>
-      
-      <a href="#" class="card-link btn btn-danger"><i class='fas fa-trash'></i>&nbsp;&nbsp;Deletar</a>
-    </div>
+
+
+      <button class="card-link btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class='fas fa-trash'></i>&nbsp;&nbsp;Deletar
+      </button>
+      </div>
   </div>
 
-<!--MODAL FORM-->
-{% include 'parciais/modal_form_cadastro_edit.html' %}
+<!--MODAL FORM--> 
+{% include 'parciais/modal/modal_form_cadastro_edit.html' %}
+
+{% include 'parciais/modal/modal_deletar.html' %}
 
 
 {% endblock content %}

@@ -1,9 +1,0 @@
-
-{% extends 'parciais/modal_base.html' %}
-
-{% block modal-title %}Novo contato{% endblock modal-title %}
-
-{% block action %}action='{% url 'editar_contato_id' contato.id%}'{% endblock action %}
-
-{% block content %}{{form}}{% endblock content%}
-  
