@@ -1,0 +1,50 @@
+
+/* CONFIG INITIAL*/
+
+html,
+body{
+    /*
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)),url("../img/frontend2.jpg");
+    background-position: center 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;*/
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.wrapper{
+    min-height: 100%;    
+    margin-bottom: -50px;
+
+}
+
+#footer,
+.push{
+    height: 50px;
+    
+}
+
+#navbar-content{
+    text-align: center;
+    color: #fff;
+    margin-left: 30px;
+}
+
+
+
+
+#navbar-links{
+    text-align: center;
+    color: #fff;
+    margin-right: 30px;
+}
+
+.foto{
+    border: 1px solid transparent;
+    border-radius: 20px;
+    max-width: 250px;
+    height: auto;
+}
