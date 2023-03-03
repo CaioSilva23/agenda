@@ -21,7 +21,7 @@ def login(request):
         return redirect('/accounts/login')
     else:
         auth.login(request, usuario)
-        return redirect('/contatos/home/')
+        return redirect('home')
 
 
 def cadastro(request):

@@ -4,7 +4,7 @@
 {% block title %}{{contato.nome|title}}{% endblock title %}
 
 {% block content %}
-<div class="card " style="width: 18rem; border: none">
+<div class="card " style="width: 18rem; border: none; margin-bottom: 100px;">
   {% if contato.foto %}
     <img src="{{contato.foto.url}}"  class="card-img-top foto" alt="foto do {{contato.nome}}">
   {% endif %} 

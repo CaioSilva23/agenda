@@ -8,11 +8,13 @@ body{
     background-position: center 0px;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;*/
+    background-size: cover; */
     height: 100%;
     margin: 0;
     max-width: 100%;
-    overflow: hidden;
+
+ /*
+    overflow: hidden;*/
 }
 
 .wrapper{
@@ -23,6 +25,7 @@ body{
 
 #footer,
 .push{
+    margin-top: auto;
     height: 50px;
     
 }
