@@ -4,9 +4,12 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.HomeDetail.as_view(), name='home'),
-    path('contato/<int:id>/', views.ContatoDetail.as_view(), name='contato'),
-    path('novo_contato/', views.DashboardContatos.as_view(), name='novo_contato'),
-    path('editar_contato_id/<int:id>/', views.DashboardContatos.as_view(), name='editar_contato_id'),
-    path('deletar/<int:id>/', views.ContatoDelete.as_view(), name='deletar'),
+    path('', views.ContatosList.as_view(), name='home'),
+
+
+    path('contato/<int:pk>/', views.ContatosDetail.as_view(), name='contato'),
+    path('novo_contato/', views.ContatosList.as_view(), name='novo_contato'),
+    path('deletar/<int:pk>/', views.ContatoDelete.as_view(), name='deletar'),
+
+    path('editar_contato_id/<int:pk>/', views.ContatosDetail.as_view(), name='editar_contato_id'),
 ]
