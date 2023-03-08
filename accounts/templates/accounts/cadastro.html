@@ -1,26 +1,24 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}Cadatre-se{% endblock title %}
 
 {% block content %}
 
-<div class="container justify-content-center align-items-center p-4" style='background-color: rgba(0,0,0,0.2); max-width: 50%; border-radius: 20px'>
+<div class="container justify-content-center align-items-center p-4" style='background-color: rgba(0,0,0,0.2); max-width: 50%; border-radius: 20px; color: #FFF;'>
     <h1 class='mb-4'>Cadatre-se</h1>
 
 <div class="col-xl-12 col-sm-12">
     <form action="{% url 'cadastro' %}" method='POST'>{% csrf_token %}
-
-        {% for field in form  %}{{field.label}}
-        {{field.errors}}
-        <div class="input-group input-group-sm mb-3">
-            {{field}}
-        </div>
-        {% endfor %}
-            
-    
+            {{form.username|as_crispy_field}}
+            {{form.email|as_crispy_field}}
+            {{form.password|as_crispy_field}}
+            {{form.password2|as_crispy_field}}
             <br>
-        <button class='btn btn-secondary' type="submit">Enviar</button>
-        <p class='text-center' ><a style='text-decoration: none;' href="{% url 'login' %}">Fazer login</a></p>
+        <button class='btn btn-secondary' type="submit" style='width: 100%;'>Enviar</button>
+        <br>
+        <br>
+        <p class='text-center' ><a style=' color: #FFF;' href="{% url 'login' %}">Fazer login</a></p>
     
     </form>
 </div>

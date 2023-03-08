@@ -1,0 +1,26 @@
+{% extends 'parciais/modal/modal_cadastro.html' %}
+
+{% block modal-id %}id="modalCategoria"{% endblock modal-id %}
+
+
+{% block modal-title %}Nova categoria{% endblock modal-title %}
+
+{% block conteudo %}
+
+<form method='POST' {% block action %} action='{% url "nova_categoria" %}'{% endblock action %} enctype='multipart/form-data'>{% csrf_token %}
+  <div class="modal-body">
+
+    <div class="input-group input-group-sm mb-2">
+      <button class='side-label btn border-secondary bg-success'>
+          <i class='fas fa-user-alt'></i>
+      </button>
+      {{form_categoria.nome}}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-sm btn-cancel" data-bs-dismiss="modal">Fechar</button>
+    <button type="submit" class="btn btn-info btn-sm btn-send">Enviar</button>
+  </div>
+</form>
+
+{% endblock conteudo %}

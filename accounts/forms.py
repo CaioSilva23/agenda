@@ -38,7 +38,7 @@ class RegisterForm(forms.ModelForm):
                 'class': 'form-control'
             }
         ),
-        required=False
+        required=True
     )
 
     first_name = forms.CharField(

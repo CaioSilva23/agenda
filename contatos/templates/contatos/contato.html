@@ -6,7 +6,7 @@
 {% block content %}
 <div class="card " style="width: 18rem; border: none; margin-bottom: 100px;">
   {% if contato.foto %}
-    <img src="{{contato.foto.url}}"  class="card-img-top foto" alt="foto do {{contato.nome}}">
+    <img src="{{contato.foto.url}}"  class="card-img-top" alt="foto do {{contato.nome}}">
   {% endif %} 
     <div class="card-body">
       <h5 class="card-title">{{contato.nome}} {{contato.sobrenome}}</h5>

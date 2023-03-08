@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contato
+from .models import Contato, Categoria
 
 
 class FormContato(forms.ModelForm):
@@ -16,4 +16,13 @@ class FormContato(forms.ModelForm):
             'foto': forms.FileInput(attrs={'class': 'form-control'}),
             'categoria': forms.Select(attrs={'class': 'form-control'}),
             
+        }
+class FormCategoria(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = '__all__'
+        
+        widgets = {
+            'nome': forms.TextInput(attrs={'placeholder': 'Categoria...', 'class': 'form-control'}),
+ 
         }

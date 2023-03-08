@@ -4,15 +4,17 @@
 
 {% block content %}
 
-<div class="container justify-content-center align-items-center p-4" style='background-color: rgba(0,0,0,0.2); max-width: 30%; border-radius: 20px'>
+<div class="container justify-content-center align-items-center p-4" style='background-color: rgba(0,0,0,0.2); max-width: 50%; border-radius: 20px; color: #FFF;'>
     <h1 class='mb-4'>Login</h1>
 <form action="{% url 'login' %}" method='POST'>{% csrf_token %}
     <input type="text" placeholder='Digite seu usuário...' name='nome' class='form-control'>
     <br>
     <input type="password" placeholder='Digite sua senha...' name='senha' class='form-control'>
     <br>
-    <button class='btn btn-secondary' type="submit">Logar</button>
-    <p class='text-center' ><a style='text-decoration: none;' href="{% url 'cadastro' %}">Cadastre-se</a></p>
+    <button class='btn btn-secondary' type="submit" style='width: 100%;'>Logar</button>
+    <br>
+    <br>
+    <p class='text-center' ><a style='color: #FFF;' href="{% url 'cadastro' %}">Cadastre-se</a></p>
 </form>
 </div>
 

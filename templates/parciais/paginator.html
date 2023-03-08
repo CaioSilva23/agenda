@@ -1,13 +1,37 @@
-<nav aria-label="Page navigation example">
+{% if is_paginated %}
+<div class="pagination">
     <ul class="pagination">
-      {% for pagina in contatos.paginator.page_range %}
-        {% comment %} <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li> {% endcomment %}
-          {% if contatos.number == pagina %}
-              <li class="page-item active"><a class="page-link" href="?p={{pagina}}">{{pagina}}</a></li>
-          {% else %}
-              <li class="page-item"><a class="page-link" href="?p={{pagina}}">{{pagina}}</a></li>
-          {% endif %}
-      {% endfor %}
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1"  style='color: #000'>&laquo;</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}"  style='color: #000'>&lsaquo;</a>
+        </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+
+        {% if page_obj.number == num %}
+        <li class="page-item active">
+            <a class="page-link bg-success" href="?page={{ num }}" >{{ num }}</a>
+        </li>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ num }}" style='color: #000'>{{ num }}</a>
+        </li>
+        {% endif %}
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}"  style='color: #000'>&rsaquo;</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" style='color: #000'>&raquo;</a>
+        </li>
+        {% endif %}
     </ul>
-  </nav>
+</div>
+{% endif %}

@@ -1,10 +1,22 @@
-{% extends 'parciais/modal/modal_sair_base.html' %}
-
-{% block title %}Deseja realmente sair ?{% endblock title %}
-
-{% block content %}
-
-<i class='fas fa-power-off fa-4x text-danger'></i>
-{% endblock content %}
-
-{% block url %}href="{% url 'logout' %}"{% endblock url %} >
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class='fas fa-address-book'></i> &nbsp;&nbsp;
+            {% block title %}Deseja realmente sair ?{% endblock title %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <i class='fas fa-power-off fa-4x text-danger'></i>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <a class="btn btn-danger" {% block url %} href="{% url 'logout' %}"{% endblock url %} >
+            Sim
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

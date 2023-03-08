@@ -7,7 +7,7 @@ from .forms import RegisterForm
 def login(request):
     if request.method == "GET":
         if request.user.is_authenticated: # VERIFICA SE O USUÁRIO JÁ ESTÁ LOGADO
-            return redirect('/contatos/home/')
+            return redirect('/')
         else:
             return render(request, 'accounts/login.html')
     
@@ -25,9 +25,11 @@ def login(request):
 
 
 def cadastro(request):
-
+    if request.method == "GET":
+        if request.user.is_authenticated: # VERIFICA SE O USUÁRIO JÁ ESTÁ LOGADO
+            return redirect('/')
+        
     form = RegisterForm(request.POST or None)
-
     if request.method == 'GET':
         return render(request, 'accounts/cadastro.html', {'form': form})
     
@@ -40,7 +42,6 @@ def cadastro(request):
             return redirect('/accounts/login')
         else:
             return render(request, 'accounts/cadastro.html', {'form': form})
-        
 
 def logout(request):
     auth.logout(request)

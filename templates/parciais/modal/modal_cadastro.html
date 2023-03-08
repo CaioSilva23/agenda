@@ -3,10 +3,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="defaultModalLabel"><i class='fas fa-address-book'></i> &nbsp;&nbsp;{% block modal-title %}{% endblock modal-title %}</h5>
+          <h5 class="modal-title" id="defaultModalLabel"><i class='fas fa-address-book'></i> &nbsp;&nbsp;{% block modal-title %}Novo contato{% endblock modal-title %}
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method='POST' {% block action %}{% endblock action %} {% block validation %}{% endblock validation %} enctype='multipart/form-data'>{% csrf_token %}
+        {% block conteudo %}
+        <form method='POST' {% block action %} action='{% url "novo_contato" %}'{% endblock action %} enctype='multipart/form-data'>{% csrf_token %}
             <div class="modal-body">
           
             <div class="input-group input-group-sm mb-2">
@@ -59,6 +61,7 @@
               <button type="submit" class="btn btn-info btn-sm btn-send">Enviar</button>
             </div>
         </form>
+        {% endblock conteudo %}
        
       </div>
     </div>
