@@ -22,10 +22,12 @@
   <a href="https://github.com/caiosilva23" target="_blank">Autor</a>
 </p>
 
-<p align="center">
-  <img alt="agenda" src="public/agenda.gif">
-</p>
-
+<video align="center" controls width="560" poster="imagens/paisagem-m.png">
+    <source src="public/novo.mp4"" type="video/mp4">
+    <source src="public/novo.mp4" type="video/mp4">
+    <source src="public/novo.mp4" type="video/webm">
+    <p>Seu navegador não tem compartibilidade com a execução do video.</p>
+</video>
 
 <h2 id="sobre">
 ## 🎯 Sobre
