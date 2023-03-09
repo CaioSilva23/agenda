@@ -25,11 +25,11 @@
 
 
 <p align="center">
-  <img alt="agenda" src="public/login.gif" width=250>
-  <img alt="agenda" src="public/cadastro.gif"width=250>
-  <img alt="agenda" src="public/home.gif"width=250>
-  <img alt="agenda" src="public/form_cadastro.gif"width=250>
-  <img alt="agenda" src="public/contato.gif"width=250>
+  <img alt="agenda" src="public/login.png" width=250>
+  <img alt="agenda" src="public/cadastro.png"width=250>
+  <img alt="agenda" src="public/home.png"width=250>
+  <img alt="agenda" src="public/form_cadastro.png"width=250>
+  <img alt="agenda" src="public/contato.png"width=250>
 </p>
 
 
