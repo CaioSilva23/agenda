@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <img alt="agenda" src="public/agenda.gif" width=250>
+  <img alt="agenda" src="public/agenda.gif">
 </p>
 
 
