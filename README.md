@@ -22,12 +22,16 @@
   <a href="https://github.com/caiosilva23" target="_blank">Autor</a>
 </p>
 
-<video align="center" controls width="560" poster="imagens/paisagem-m.png">
-    <source src="public/novo.mp4"" type="video/mp4">
-    <source src="public/novo.mp4" type="video/mp4">
-    <source src="public/novo.mp4" type="video/webm">
-    <p>Seu navegador não tem compartibilidade com a execução do video.</p>
-</video>
+
+
+<p align="center">
+  <img alt="agenda" src="public/login.gif">
+  <img alt="agenda" src="public/cadastro.gif">
+  <img alt="agenda" src="public/home.gif">
+  <img alt="agenda" src="public/form_cadastro.gif">
+  <img alt="agenda" src="public/form_cadastro.gif">
+</p>
+
 
 <h2 id="sobre">
 ## 🎯 Sobre
