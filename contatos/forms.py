@@ -14,13 +14,13 @@ class FormContato(forms.ModelForm):
             'telefone': forms.TextInput(attrs={'placeholder': 'Telefone', 'class': 'form-control'}),
             'email': forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control'}),
             'foto': forms.FileInput(attrs={'class': 'form-control'}),
-            'categoria': forms.Select(attrs={'class': 'form-control'}),
+            
             
         }
 class FormCategoria(forms.ModelForm):
     class Meta:
         model = Categoria
-        fields = '__all__'
+        fields = ('nome',)
         
         widgets = {
             'nome': forms.TextInput(attrs={'placeholder': 'Categoria...', 'class': 'form-control'}),

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=25)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.nome
@@ -16,7 +17,7 @@ class Contato(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
     descricao = models.TextField(blank=True)
     foto = models.ImageField(upload_to='fotos', blank=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_DEFAULT, default='Sem categoria')
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self) -> str:

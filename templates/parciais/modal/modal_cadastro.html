@@ -45,7 +45,11 @@
               <button class='side-label btn border-secondary bg-success'>
                   <i class='fas fa-user-alt'></i>
               </button>
-              {{form.categoria}}
+              <select name="categoria" id="id_categoria" class='form-control'>
+                {% for cat in categorias %}
+                <option value="{{cat.id}}">{{cat}}</option>
+                {% endfor %}
+              </select>
           </div>
           <hr style='height: 1px;'>
           

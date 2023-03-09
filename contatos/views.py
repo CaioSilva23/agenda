@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_list_or_404
 from django.contrib import messages
 from django.urls import reverse_lazy
 
@@ -26,6 +26,7 @@ class ContatosList(ListView):
         context = super().get_context_data(**kwargs)
         context["form"] = FormContato()
         context['form_categoria'] = FormCategoria()
+        context['categorias'] = Categoria.objects.filter(user_id = self.request.user.id)
         return context
     
     def post(self, *args, **kwargs):
@@ -42,14 +43,22 @@ class ContatosList(ListView):
 @method_decorator(login_required, name='dispatch')
 class FiltroContatosList(ContatosList):
     # FILTRO DO HOME CONTANTOS
+
     def get_queryset(self):
         qs = super().get_queryset()
         termo = self.request.GET.get('termo')
-
+        if termo is None or not termo:
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                'Campo termo não pode ficar vazio.'
+            )
+            return []
+        
         campos = Concat('nome', Value(' '), 'sobrenome')
         qs = qs.annotate(
             nome_completo=campos
-            ).filter(Q(nome_completo__icontains=termo) | Q(telefone__icontains=termo))
+            ).filter(Q(nome_completo__icontains=termo) | Q(telefone__icontains=termo)| Q(categoria__nome__icontains=termo))
         return qs
     
 @method_decorator(login_required(login_url='login'), name='dispatch')
@@ -60,6 +69,12 @@ class ContatoDetalhes(UpdateView):
     form_class = FormContato
     context_object_name = 'contato'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categorias'] = Categoria.objects.filter(user_id = self.request.user.id)
+        return context
+
+
     def form_valid(self, form):
         form.save()
         messages.success(self.request, 'Contato editado com sucesso!')
@@ -75,7 +90,9 @@ class PostCategoria(View):
     def post(self, *args, **kwargs):
         form = FormCategoria(self.request.POST)
         if form.is_valid():
-            form.save()
+            categoria = form.save(commit=False)
+            categoria.user = self.request.user
+            categoria.save()
             messages.success(self.request, 'Nova categoria inserido com sucesso!')
             return redirect('/')
         messages.error(self.request, 'Dados inválidos!')

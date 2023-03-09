@@ -6,9 +6,10 @@
 <br><br>
 
 <form action="{% url 'filtro_contatos' %}" class='d-flex'>
-  <input type="search" class='form-control mx-1' value='{{request.GET.pesquisa}}' name='termo' placeholder='Digite a sua pesquisa'>
-  <button type="submit" class='btn btn-success'><i class='fas fa-search'></i></button>
+  <input type="search" class='form-control mx-1' value='{{request.GET.pesquisa}}' name='termo' placeholder='Digite a sua pesquisa' style='width: 30%;'>
+  <a class='btn btn-success' href="{% url 'home' %}"><i class='fas fa-sync-alt'></i></a>
 </form>
+
 <br>
 
 <button class='btn btn-success' data-bs-toggle="modal" data-bs-target="#modalContato" >
@@ -35,7 +36,7 @@
       <tr>
         <th>
           
-            <a href="{% url 'contato' contato.id%}" style='text-decoration: none;'>
+            <a class='txt-b' href="{% url 'contato' contato.id%}" style='text-decoration: none;'>
                 {{contato.nome}}
             </a>
         </th>
@@ -54,12 +55,6 @@
 <!--MODAL PAGINATOR-->
 {% include 'parciais/paginator.html' %}
 
- <!-- MODAL FORM-->
-{% include 'parciais/modal/modal_cadastro.html' %}
 
-{% include 'parciais/modal/modal_categoria.html' %}
-
-<!--MODAL SAIR-->
-{% include 'parciais/modal/modal_sair.html' %}
 
 {% endblock content %}   
