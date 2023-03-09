@@ -16,7 +16,7 @@ class Contato(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
     descricao = models.TextField(blank=True)
     foto = models.ImageField(upload_to='fotos', blank=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_DEFAULT, default='Sem categoria')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self) -> str:

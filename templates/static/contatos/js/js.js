@@ -1,6 +1,6 @@
 $('#example').DataTable({
     paging: true, // pagination
-    pageLength: 1, //data per page
+    pageLength: 10, //data per page
     lengthChange: true, //show entries per page
     autoWidth: true, // control the auto width on columns
     searching: true, //campo de pesquisa 

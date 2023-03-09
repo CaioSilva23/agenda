@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<h1>Agenda - {{user|title}}</h1>
+<h1 class='txt'>Agenda - {{user|title}}</h1>
 <br><br>
 
 <form action="{% url 'filtro_contatos' %}" class='d-flex'>
@@ -45,15 +45,15 @@
         <td>{{contato.categoria}}</td>
       </tr>
     {%empty%}
-    <p>Sem registros</p>
+    <p class='txt'>Sem registros</p>
     {% endfor %}
 
     </tbody>
   </table>
 
-<!--MODAL PAGINATOR
+<!--MODAL PAGINATOR-->
 {% include 'parciais/paginator.html' %}
--->
+
  <!-- MODAL FORM-->
 {% include 'parciais/modal/modal_cadastro.html' %}
 

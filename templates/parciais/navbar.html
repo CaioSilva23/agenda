@@ -1,8 +1,8 @@
 <header>
-    <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
-        <div class='col-sm'>
+    <nav class='navbar navbar-expand-lg navbar-dark' style='background-color: #070C15; border-bottom: 2px solid #fff;'>
+        <div class='col-sm' >
             <a href='{% url "home" %}' class='navbar-brand flex-grow-1' id='navbar-content'>
-                <i class="fas fa-address-book"></i>&nbsp;&nbsp; <strong>Agenda</strong>
+                <i class="fas fa-address-book" ></i>&nbsp;&nbsp; <strong>Agenda</strong>
             </a>
         </div>
         <!--LINKS-->
@@ -10,7 +10,7 @@
         {% if user.is_authenticated %}
         <div style='margin-right: 30px;'>
             <a class='btn btn-danger' data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class='fas fa-power-off'></i>
+                <i class='fas fa-power-off' ></i>
             </a>
         </div>
        

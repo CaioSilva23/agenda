@@ -15,6 +15,7 @@ class ContatosList(ListView):
     template_name = 'contatos/home.html'
     model = Contato
     context_object_name = 'contatos'
+    paginate_by = 7
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -28,7 +29,7 @@ class ContatosList(ListView):
         return context
     
     def post(self, *args, **kwargs):
-        form = FormContato(self.request.POST)
+        form = FormContato(self.request.POST, self.request.FILES)
         if form.is_valid():
             novo_contato = form.save(commit=False)
             novo_contato.user = self.request.user
@@ -58,15 +59,15 @@ class ContatoDetalhes(UpdateView):
     model = Contato
     form_class = FormContato
     context_object_name = 'contato'
-
-    # def form_valid(self, form):
-    #     form.save()
-    #     messages.success(self.request, 'Contato editado com sucesso!')
-    #     return redirect('contato', self.get_object().id)
-   
-    def get_success_url(self):
+    
+    def form_valid(self, form):
+        form.save()
         messages.success(self.request, 'Contato editado com sucesso!')
-        return reverse_lazy('contato', kwargs={'pk': self.get_object().id})
+        return redirect('contato', self.get_object().id)
+   
+    # def get_success_url(self):
+    #     messages.success(self.request, 'Contato editado com sucesso!')
+    #     return reverse_lazy('contato', kwargs={'pk': self.get_object().id})
     
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
@@ -75,7 +76,7 @@ class PostCategoria(View):
         form = FormCategoria(self.request.POST)
         if form.is_valid():
             form.save()
-            messages.success(self.request, 'Novo contato inserido com sucesso!')
+            messages.success(self.request, 'Nova categoria inserido com sucesso!')
             return redirect('/')
         messages.error(self.request, 'Dados inválidos!')
         return redirect('/')
